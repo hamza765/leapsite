@@ -22,28 +22,9 @@ Leap.loop(controllerOptions, function(frame) {
             var hand = frame.hands[i];
 
             handy = hand.type;
-            handString += "Hand ID: " + hand.id + "<br />";
-            handString += "Type: " + hand.type + handy[i] + " hand" + "<br />";
-            
-            // Hand motion factors
-            
-
-            // IDs of pointables associated with this hand
-            if (hand.pointables.length > 0) {
-                var fingerIds = [];
-                for (var j = 0; j < hand.pointables.length; j++) {
-                    var pointable = hand.pointables[j];
-                    fingerIds.push(pointable.id);
-                }
-                if (fingerIds.length > 0) {
-                    handString += "Fingers IDs: " + fingerIds.join(", ") + "<br />";
-                }
-            }
-
-            handString += "</div>";
         }
     } else {
-        handString += "No hands";
+        handString += "<h1>Virtual Space is empty.</h1>";
     }
     handOutput.innerHTML = handString;
 
@@ -71,11 +52,11 @@ Leap.loop(controllerOptions, function(frame) {
         if (iter > 1000)
             document.body.style.backgroundColor = "#0099FF";
         if (iter > 1100)
-          iter = 0;
+            iter = 0;
 
 
     } else {
-        iter=0;
+
         document.body.style.backgroundColor = "#eee";
     }
     pointableOutput.innerHTML = pointableString;
@@ -91,29 +72,16 @@ Leap.loop(controllerOptions, function(frame) {
 
             switch (gesture.type) {
                 case "circle":
-                    document.body.style.backgroundColor = "white";
+
                     iter = 0;
                     break;
                 case "swipe":
                     //document.body.innerHTML = "Some new HTML content";
                     break;
-                case "screenTap":
-                case "keyTap":
-                    gestureString += "position: " + vectorToString(gesture.position) + " mm";
-                    break;
-                default:
-                    gestureString += "unkown gesture type";
             }
             gestureString += "<br />";
         }
     }
-
-
-    // else {
-    //   gestureString += "No gestures";
-    // }
-    //gestureOutput.innerHTML = gestureString;
-
     // Store frame for motion functions
     previousFrame = frame;
 })
