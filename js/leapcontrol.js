@@ -44,7 +44,7 @@ Leap.loop(controllerOptions, function(frame) {
         iter++;
 
         if (iter > 250)
-            document.body.style.backgroundColor = "red";
+            document.body.style.backgroundColor = "#990000";
         if (iter > 500)
             document.body.style.backgroundColor = "black";
         if (iter > 750)
@@ -55,11 +55,14 @@ Leap.loop(controllerOptions, function(frame) {
             iter = 0;
 
 
+        pointableOutput.innerHTML = pointableString;
+
+
     } else {
 
         document.body.style.backgroundColor = "#eee";
     }
-    pointableOutput.innerHTML = pointableString;
+
 
     // Display Gesture object data
     var gestureOutput = document.getElementById("main");
@@ -91,22 +94,4 @@ function vectorToString(vector, digits) {
         digits = 1;
     }
     return "(" + vector[0].toFixed(digits) + ", " + vector[1].toFixed(digits) + ", " + vector[2].toFixed(digits) + ")";
-}
-
-function togglePause() {
-    paused = !paused;
-
-    if (paused) {
-        document.getElementById("pause").innerText = "Resume";
-    } else {
-        document.getElementById("pause").innerText = "Pause";
-    }
-}
-
-function pauseForGestures() {
-    if (document.getElementById("pauseOnGesture").checked) {
-        pauseOnGesture = true;
-    } else {
-        pauseOnGesture = false;
-    }
 }
