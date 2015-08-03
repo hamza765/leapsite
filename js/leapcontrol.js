@@ -2,7 +2,8 @@
 var previousFrame = null;
 var paused = false;
 var pauseOnGesture = false;
-
+var canvas = document.getElementsByTagName('canvas')[0],
+    ctx = canvas.getContext('2d');
 // Setup Leap loop with frame callback function
 var controllerOptions = {
     enableGestures: true
@@ -80,6 +81,8 @@ Leap.loop(controllerOptions, function(frame) {
                     break;
                 case "swipe":
                     //document.body.innerHTML = "Some new HTML content";
+                    //ctx.fillRect(-canvas.width / 2, -canvas.height, canvas.width, canvas.height);
+                    //ctx.fillStyle = "rgba(255,255,255,1)";
                     break;
             }
             gestureString += "<br />";

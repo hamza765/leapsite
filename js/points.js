@@ -7,7 +7,7 @@
 
   // set the canvas to cover the screen
   canvas.width = document.body.clientWidth;
-  canvas.height = (document.body.clientHeight) / 2;
+  canvas.height = (document.body.clientHeight) / 3;
 
   // move the context co-ordinates to the bottom middle of the screen
   ctx.translate(canvas.width/2, canvas.height);
@@ -23,7 +23,7 @@
 
     // cover the canvas with a 10% opaque layer for fade out effect.
     ctx.fillStyle = "rgba(255,255,255,1)";
-    ctx.fillRect(-canvas.width/2,-canvas.height,canvas.width,canvas.height);
+   // ctx.fillRect(-canvas.width/2,-canvas.height,canvas.width,canvas.height);
 
     // set the fill to black for the points
     ctx.fillStyle = "rgba(0,0,0,0.9)";
@@ -40,7 +40,7 @@
       ctx.beginPath();
       ctx.arc(pos.x-radius/2 ,-(pos.y-radius/2),radius,0,2*Math.PI);
       ctx.fill();
-      //ctx.stroke();
+      ctx.stroke();
     }
 
     // print out our position points
