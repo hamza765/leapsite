@@ -7,7 +7,7 @@
 
   // set the canvas to cover the screen
   canvas.width = document.body.clientWidth;
-  canvas.height = (document.body.clientHeight) / 3;
+  canvas.height = (document.body.clientHeight) / 2;
 
   // move the context co-ordinates to the bottom middle of the screen
   ctx.translate(canvas.width/2, canvas.height);
