@@ -76,13 +76,15 @@ Leap.loop(controllerOptions, function(frame) {
 
             switch (gesture.type) {
                 case "circle":
-
-                    iter = 0;
+                    ctx.fillStyle = "rgba(0,0,0,0.9)";
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
                     break;
                 case "swipe":
                     //document.body.innerHTML = "Some new HTML content";
                     //ctx.fillRect(-canvas.width / 2, -canvas.height, canvas.width, canvas.height);
-                    //ctx.fillStyle = "rgba(255,255,255,1)";
+
+
                     break;
             }
             gestureString += "<br />";
@@ -91,10 +93,3 @@ Leap.loop(controllerOptions, function(frame) {
     // Store frame for motion functions
     previousFrame = frame;
 })
-
-function vectorToString(vector, digits) {
-    if (typeof digits === "undefined") {
-        digits = 1;
-    }
-    return "(" + vector[0].toFixed(digits) + ", " + vector[1].toFixed(digits) + ", " + vector[2].toFixed(digits) + ")";
-}
